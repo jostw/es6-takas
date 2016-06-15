@@ -37,7 +37,7 @@ describe('use `import` to import functions that have been exported (somewhere el
     it('using `member as alias` as memberName', function() {
       assert.strictEqual(myEqual, assert.equal);
     });
-    it('rename the default export of a module, using `default as alias` as memberName', function() {
+    it('rename the default export of a module, using `{default as alias}` as memberName', function() {
       assert.strictEqual(myAssert, assert);
     });
   });
