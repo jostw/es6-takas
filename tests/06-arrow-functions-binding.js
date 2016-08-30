@@ -6,13 +6,11 @@ var assert = require("assert");
 class LexicallyBound {
 
   getFunction() {
-    return () => {
-      return this;
-    }
+    return () => this;
   }
 
   getArgumentsFunction() {
-    return () => arguments
+    return () => arguments;
   }
 
 }
@@ -30,9 +28,9 @@ describe('arrow functions have lexical `this`, no dynamic `this`', () => {
     var bound = new LexicallyBound();
     var fn = bound.getFunction();
     var anotherObj = {};
-    var expected = anotherObj;
+    var expected = fn(anotherObj);
 
-    assert.strictEqual(fn.call(anotherObj), bound);
+    assert.strictEqual(fn.call(anotherObj), expected);
   });
 
   it('`arguments` doesnt work inside arrow functions', function() {
