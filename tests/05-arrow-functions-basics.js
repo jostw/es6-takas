@@ -28,8 +28,8 @@ describe('arrow functions', function() {
   });
 
   it('body needs parens to return an object', () => {
-    var func = () => ({iAm: 'an object'});
-    assert.deepEqual(func(), {iAm: 'an object'});
+    var func = () => `iAm: 'an object'`;
+    assert.deepEqual(func(), `iAm: 'an object'`);
   });
 
 });
